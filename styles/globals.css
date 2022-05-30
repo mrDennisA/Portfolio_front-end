@@ -1,0 +1,26 @@
+@import "./common/typography.css";
+@import "./common/color.css";
+
+:root {
+  --radius: 4px;
+  --maxWidth: 1200px;
+  --timer: 0.2s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+
+  border: unset;
+  outline: unset;
+  background: unset;
+}
+
+#__next {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}

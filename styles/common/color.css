@@ -1,0 +1,8 @@
+:root {
+  --grey35: hsl(0, 0%, 35%);
+  --red: hsl(8, 100%, 35%);
+}
+
+* {
+  color: var(--grey35);
+}
