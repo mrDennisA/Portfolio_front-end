@@ -20,12 +20,11 @@ export default function Index(props) {
 }
 
 export async function getStaticProps() {
-  let data = [];
   try {
     const response = await axios.get(PROJECTS_URL);
-    data = response.data;
+    const data = response.data.data;
+    return { props: { data } };
   } catch (error) {
     console.log(error);
   }
-  return { props: { data } };
 }
