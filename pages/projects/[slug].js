@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 // fetch data
 export async function getStaticProps({ params }) {
   const url = PROJECTS_URL + "/" + params.slug;
-  let data = [];
+  let data = null;
   try {
     const response = await axios.get(url);
     data = response.data;
