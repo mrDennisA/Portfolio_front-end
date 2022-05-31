@@ -1,6 +1,3 @@
-import axios from "axios";
-
-// API
 import supabase from "../utils/supabase";
 
 // Components
