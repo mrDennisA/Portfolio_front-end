@@ -1,40 +1,43 @@
 import axios from "axios";
 
 // API
-import { PROJECTS_URL } from "../../constants/api";
+import supabase from "../../utils/supabase";
 
 // Comnponents
 import Head from "../../Layout/Head";
 
 export default function Project(props) {
-  // console.log(props);
+  // console.log(data);
+  const { title } = props.data;
   return (
     <>
-      <Head title={props.data.attributes.title} />
-      <div>{props.data.attributes.title}</div>
+      <Head title={title} />
+      <div>{title}</div>
     </>
   );
 }
 
+const url = "projects";
+
 // fetch path
 export async function getStaticPaths() {
   try {
-    const response = await axios.get(PROJECTS_URL);
-    const paths = response.data.data.map((item) => ({
-      params: { id: item.id.toString() },
+    const { data: data } = await supabase.from(url).select("id");
+    const paths = data.map(({ id }) => ({
+      params: {
+        id: id.toString(),
+      },
     }));
-    return { paths: paths, fallback: false };
+    return { paths, fallback: false };
   } catch (error) {
     console.log(error);
   }
 }
 
 // fetch data
-export async function getStaticProps({ params }) {
-  const url = PROJECTS_URL + "/" + params.id;
+export async function getStaticProps({ params: { id } }) {
   try {
-    const response = await axios.get(url);
-    const data = response.data.data;
+    const { data: data } = await supabase.from(url).select("*").eq("id", id).single();
     return {
       props: { data },
     };

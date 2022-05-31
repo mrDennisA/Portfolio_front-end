@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // API
-import { PROJECTS_URL } from "../constants/api";
+import supabase from "../utils/supabase";
 
 // Components
 import Head from "../Layout/Head";
@@ -19,12 +19,13 @@ export default function Index(props) {
   );
 }
 
+const url = "projects";
 export async function getStaticProps() {
   try {
-    const response = await axios.get(PROJECTS_URL);
-    const data = response.data.data;
+    const { data: data } = await supabase.from(url).select("*");
     return { props: { data } };
   } catch (error) {
     console.log(error);
+    throw new Error(error);
   }
 }

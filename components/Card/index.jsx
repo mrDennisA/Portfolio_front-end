@@ -6,8 +6,7 @@ import { Container, Content } from "./index.styled";
 
 export default function Card(props) {
   // console.log(props);
-  const { id } = props.data;
-  const { title } = props.data.attributes;
+  const { id, title } = props.data;
   const index = props.index + 1;
 
   return (
