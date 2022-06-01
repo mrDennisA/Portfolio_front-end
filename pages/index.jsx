@@ -19,7 +19,7 @@ export default function Index(props) {
 const url = "projects";
 export async function getStaticProps() {
   try {
-    const { data: data } = await supabase.from(url).select("*");
+    const { data: data } = await supabase.from(url).select("*").order("id", { ascending: false });
     return { props: { data } };
   } catch (error) {
     console.log(error);
