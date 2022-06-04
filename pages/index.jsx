@@ -1,4 +1,7 @@
-import supabase from "../utils/supabase";
+import axios from "axios";
+
+// API
+import { HOME_URL, PROJECTS_URL } from "../constants/api";
 
 // Components
 import Head from "../Layout/Head";
@@ -7,22 +10,23 @@ import Projects from "../components/Projects";
 
 export default function Index(props) {
   // console.log(props);
+
   return (
     <>
-      <Head title="Home" />
-      <Hero />
-      <Projects data={props.data} />
+      <Head title={props.home.title} />
+      <Hero data={props.home} />
+      <Projects data={props.projects} />
     </>
   );
 }
 
-const url = "projects";
 export async function getStaticProps() {
   try {
-    const { data: data } = await supabase.from(url).select("*").order("id", { ascending: false });
-    return { props: { data } };
+    const { data: home } = await axios.get(HOME_URL + "?populate=content");
+    const { data: projects } = await axios.get(PROJECTS_URL + "?populate=image&populate=content");
+
+    return { props: { home: home.data.attributes, projects: projects.data.reverse() } };
   } catch (error) {
     console.log(error);
-    throw new Error(error);
   }
 }

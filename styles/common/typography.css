@@ -5,3 +5,9 @@
 * {
   font-family: var(--fontPrimary);
 }
+
+h1,
+h4 {
+  font-size: 22px;
+  font-weight: 500;
+}

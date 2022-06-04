@@ -7,19 +7,24 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   padding: 0 2rem;
+
+  @media only screen and (min-width: 576px) {
+    padding: 0 6rem;
+    /* text-align: center; */
+  }
 `;
 
 export const Section = styled.section`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
   height: 100vh;
-  max-height: 400px;
+  max-height: 300px;
 
-  & * {
-    font-size: 20px;
-    font-weight: 300;
+  @media only screen and (min-width: 576px) {
+    max-height: 400px;
   }
 `;
 
