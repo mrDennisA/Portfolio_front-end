@@ -11,7 +11,7 @@ import * as S from "./index.styled";
 
 export default function About(props) {
   console.log(props);
-  const { url, alternativeText, width, height } = props.data.cover.data.attributes;
+  const { url, alternativeText } = props.data.cover.data.attributes;
   return (
     <S.Section>
       <InView delay={0}>
