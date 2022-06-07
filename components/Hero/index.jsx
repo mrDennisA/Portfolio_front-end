@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 
 // Components
@@ -10,20 +9,21 @@ import LinkList from "../LinkList";
 
 // Styles
 import * as S from "./index.styled";
+import styles from "./index.module.css";
 
 export default function Hero(props) {
   const { title, richText } = props.data.content;
   return (
     <Wrapper>
-      <S.Section>
+      <section className={styles.section}>
         <InView delay={0}>
-          <S.Content>
+          <div className={styles.content}>
             <Heading>{title}</Heading>
             {richText && <ReactMarkdown>{richText}</ReactMarkdown>}
             {props.data.links && <LinkList data={props.data.links} />}
-          </S.Content>
+          </div>
         </InView>
-      </S.Section>
+      </section>
     </Wrapper>
   );
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 import ActiveLink from "../../../components/ActiveLink";
 
 // Styles
-import * as S from "./index.styled";
+import styles from "./index.module.css";
 
 export default function HeaderNav() {
   const LinkArray = () => {
@@ -17,19 +17,19 @@ export default function HeaderNav() {
   };
 
   return (
-    <S.Container>
-      <S.Wrapper>
-        <S.Content>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <div className={styles.content}>
           <Link href="/">
             <a>Dennis Alekseev</a>
           </Link>
           <nav>
-            <S.NavLink>
+            <div className={styles.navlink}>
               <LinkArray />
-            </S.NavLink>
+            </div>
           </nav>
-        </S.Content>
-      </S.Wrapper>
-    </S.Container>
+        </div>
+      </div>
+    </div>
   );
 }

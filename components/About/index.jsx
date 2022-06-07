@@ -10,7 +10,7 @@ import LinkList from "../LinkList";
 import * as S from "./index.styled";
 
 export default function About(props) {
-  console.log(props);
+  // console.log(props);
   const { url, alternativeText } = props.data.cover.data.attributes;
   return (
     <S.Section>
