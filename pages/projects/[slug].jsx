@@ -6,18 +6,20 @@ import { PROJECTS_URL } from "../../constants/api";
 // Comnponents
 import Head from "../../Layout/Head";
 import Hero from "../../components/Hero";
-
-// Styles
-import { Container } from "./slug.styled";
+import Wrapper from "../../Layout/Wrapper";
+import InView from "../../Layout/InView";
+import ImageGallery from "../../components/ImageGallery";
 
 export default function Project(props) {
-  // console.log(props);
-  const headTitle = props.project.head;
   return (
     <>
-      <Head title={headTitle} />
+      <Head title={props.project.head} />
       <Hero data={props.project} />
-      <Container></Container>
+      <Wrapper>
+        <InView delay={100}>
+          <ImageGallery data={props.project} />
+        </InView>
+      </Wrapper>
     </>
   );
 }
@@ -41,7 +43,7 @@ export async function getStaticPaths() {
 // fetch data
 export async function getStaticProps({ params }) {
   try {
-    const { data: projects } = await axios.get(PROJECTS_URL + "?populate=image&populate=content");
+    const { data: projects } = await axios.get(PROJECTS_URL + "?populate=image&populate=content&populate=links");
     const project = projects.data.find((item) => {
       return item.attributes.slug === params.slug;
     });

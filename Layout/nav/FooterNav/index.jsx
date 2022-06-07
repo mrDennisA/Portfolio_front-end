@@ -1,9 +1,9 @@
-import { Container } from "./index.styled";
+import * as S from "./index.styled";
 
 export default function FooterNav() {
   return (
-    <Container>
+    <S.Container>
       <span>{"© " + new Date().getFullYear() + " All Rights Reserved"}</span>
-    </Container>
+    </S.Container>
   );
 }

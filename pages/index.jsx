@@ -9,11 +9,11 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 
 export default function Index(props) {
-  // console.log(props);
+  // console.log( props);
 
   return (
     <>
-      <Head title={props.home.title} />
+      <Head title={props.home.head} />
       <Hero data={props.home} />
       <Projects data={props.projects} />
     </>
@@ -23,7 +23,7 @@ export default function Index(props) {
 export async function getStaticProps() {
   try {
     const { data: home } = await axios.get(HOME_URL + "?populate=content");
-    const { data: projects } = await axios.get(PROJECTS_URL + "?populate=image&populate=content");
+    const { data: projects } = await axios.get(PROJECTS_URL + "?populate=cover&populate=content");
 
     return { props: { home: home.data.attributes, projects: projects.data.reverse() } };
   } catch (error) {

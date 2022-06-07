@@ -1,16 +1,25 @@
 :root {
   --grey35: hsl(0, 0%, 35%);
-  --red: hsl(8, 100%, 35%);
+  --grey95: hsl(0, 0%, 95%);
 
-  --white25: hsla(0, 0%, 100%, 25%);
-  --white50: hsla(0, 0%, 100%, 50%);
+  --red: hsl(8, 100%, 35%);
+  --red50: hsla(8, 100%, 35%, 25%);
+
+  --white: hsla(0, 0%, 100%, 100%);
   --white80: hsla(0, 0%, 100%, 80%);
+  --white50: hsla(0, 0%, 100%, 50%);
+  --white25: hsla(0, 0%, 100%, 25%);
+
+  --shadow01: hsl(0, 0%, 80%);
+  --shadow02: hsl(0, 0%, 90%);
+
+  --green: #5dad58;
 }
 
 * {
   color: var(--grey35);
 }
 
-/* h1 {
+h1 {
   color: var(--red);
-} */
+}

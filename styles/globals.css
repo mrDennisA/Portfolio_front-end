@@ -1,5 +1,6 @@
 @import "./common/typography.css";
 @import "./common/color.css";
+@import "./common/icons.css";
 
 :root {
   --radius: 4px;

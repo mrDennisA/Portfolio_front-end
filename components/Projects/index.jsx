@@ -1,16 +1,23 @@
 import Card from "../Card";
 
-import { Section, Content } from "./index.styled";
+import InView from "../../Layout/InView";
+
+import * as S from "./index.styled";
 
 export default function Projects(props) {
   // console.log(props);
   return (
-    <Section>
-      <Content>
+    <S.Section>
+      <S.Content>
         {props.data.map((item, index) => {
-          return <Card key={item.id} data={item} index={index} />;
+          const delay = (index + 1) * 100;
+          return (
+            <InView key={item.id} delay={delay}>
+              <Card data={item} />
+            </InView>
+          );
         })}
-      </Content>
-    </Section>
+      </S.Content>
+    </S.Section>
   );
 }

@@ -5,23 +5,22 @@ import Image from "next/image";
 import Heading from "../Heading";
 
 // Styles
-import { Content, Overlay } from "./index.styled";
+import * as S from "./index.styled";
 
 export default function Card(props) {
-  // console.log(props.data);
+  // console.log(props.data.attributes.cover.data.attributes);
   const slug = props.data.attributes.slug;
   const title = props.data.attributes.content.title;
-  const image = props.data.attributes.image.data[0].attributes.url;
-  const index = props.index + 1;
+  const cover = props.data.attributes.cover.data.attributes;
 
   return (
     <Link href={`/projects/${slug}`}>
-      <Content delay={index * 100}>
-        <Image src={image} quality={100} layout="fill" objectFit="cover" alt="" />
-        <Overlay>
+      <S.Content>
+        <Image src={cover.url} quality={100} layout="fill" objectFit="cover" alt={cover.alternativeText} />
+        <S.Overlay>
           <Heading element="h4">{title}</Heading>
-        </Overlay>
-      </Content>
+        </S.Overlay>
+      </S.Content>
     </Link>
   );
 }

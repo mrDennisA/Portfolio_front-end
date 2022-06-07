@@ -1,27 +1,14 @@
-import styled, { keyframes } from "styled-components";
-
-const inViewAnimation = keyframes`
-from
-  {
-    transform: translateY(1rem);
-    opacity: 0;
-  }
-to
-  {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
+import styled from "styled-components";
 
 export const Content = styled.a`
   position: relative;
   overflow: hidden;
   display: flex;
-  background-color: grey;
+  background-color: var(--grey95);
   width: 100%;
   height: 100vh;
   max-height: 200px;
-  opacity: 0;
+
   cursor: pointer;
 
   @media only screen and (min-width: 576px) {
@@ -33,12 +20,6 @@ export const Content = styled.a`
     aspect-ratio: 1/1;
     max-height: 400px;
   }
-
-  animation-name: ${inViewAnimation};
-  animation-duration: var(--timer);
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-in-out;
-  animation-delay: ${(props) => props.delay + "ms"};
 
   & > span {
     transition: var(--timer) ease-in-out;
