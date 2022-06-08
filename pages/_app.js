@@ -14,8 +14,12 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleStart = (url) => {
-      setLoading(true);
+      if (router.route !== url) {
+        setLoading(true);
+      }
+
       // console.log(`Loading: ${url}`);
+      // console.log(router.route !== url);
     };
     const handleStop = (url) => {
       setLoading(false);
@@ -35,9 +39,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Layout>
-      {/* <LoadingTransition loading={loading}> */}
-      <Component {...pageProps} />
-      {/* </LoadingTransition> */}
+      <LoadingTransition loading={loading}>
+        <Component {...pageProps} />
+      </LoadingTransition>
     </Layout>
   );
 }
