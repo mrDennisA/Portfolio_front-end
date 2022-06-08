@@ -1,6 +1,5 @@
 import React from "react";
 
-import * as S from "./index.styled";
 import styles from "./loadingTransition.module.css";
 
 export default function LoadingTrasition(props) {

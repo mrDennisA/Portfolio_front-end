@@ -9,7 +9,8 @@ import ValidationMessage from "../../message/ValidationMessage";
 import SubmitMessage from "../../message/SubmitMessage";
 
 // Styles
-import * as S from "../form.styled";
+import styles from "../form.module.css";
+
 // Error text
 const schema = yup.object().shape({
   name: yup.string().required("Please enter your Name").min(3, "Minimum of 3 characters"),
@@ -37,46 +38,46 @@ export default function ContactForm() {
     setTimeout(() => {
       try {
         console.log("data", data);
-        setRespons({ message: "Contact Request Submitted Successfully", validation: "success" });
+        setRespons({ message: "Contact Request Submitted Successfully", validation: true });
       } catch (error) {
         console.log("error", error);
-        setRespons({ message: "Something Went Wrong, Please Try Again Later", validation: "error" });
+        setRespons({ message: "Something Went Wrong, Please Try Again Later", validation: false });
       } finally {
         setSubmitting(false);
-        reset();
+        // reset();
       }
     }, 1000);
   }
 
   return (
-    <S.Section>
+    <section className={styles.section}>
       <SubmitMessage onClick={() => setRespons(null)} respons={respons} />
       <Heading element="h2">Contact</Heading>
-      <S.Form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset disabled={submitting}>
-          <S.Label>
+          <label>
             Name:
-            <S.Input {...register("name")} />
+            <input {...register("name")} />
             {errors.name && <ValidationMessage>{errors.name.message}</ValidationMessage>}
-          </S.Label>
-          <S.Label>
+          </label>
+          <label>
             Email:
-            <S.Input {...register("email")} />
+            <input {...register("email")} />
             {errors.email && <ValidationMessage>{errors.email.message}</ValidationMessage>}
-          </S.Label>
-          <S.Label>
+          </label>
+          <label>
             Subject:
-            <S.Input {...register("subject")} />
+            <input {...register("subject")} />
             {errors.subject && <ValidationMessage>{errors.subject.message}</ValidationMessage>}
-          </S.Label>
-          <S.Label>
+          </label>
+          <label>
             Message:
-            <S.Textarea {...register("message")} />
+            <textarea {...register("message")} />
             {errors.message && <ValidationMessage>{errors.message.message}</ValidationMessage>}
-          </S.Label>
-          <S.Button className={submitting ? "active" : ""}>{submitting ? "Sending..." : "Send"}</S.Button>
+          </label>
+          <button className={submitting ? styles.active : ""}>{submitting ? "Sending..." : "Send"}</button>
         </fieldset>
-      </S.Form>
-    </S.Section>
+      </form>
+    </section>
   );
 }

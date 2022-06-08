@@ -16,7 +16,7 @@ export default function Info(props) {
       <Head title={props.info.head} />
       <Wrapper>
         <About data={props.info} />
-        {/* <ContactForm /> */}
+        <ContactForm />
       </Wrapper>
     </>
   );

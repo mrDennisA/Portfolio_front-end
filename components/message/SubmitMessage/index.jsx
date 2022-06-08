@@ -1,10 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 
+// Components
+import { BARCLOSED_ICON } from "../../Icons";
+
 // Hooks
 import useTimeout from "../../../hooks/useTimeout";
 
-import { Container, Content } from "./index.styled";
-import { BARCLOSED_ICON } from "../../Icons";
+// Styles
+import styles from "./submitMessage.module.css";
 
 export default function SubmitMessage(props) {
   const [delay, setDelay] = useState(false);
@@ -56,18 +59,19 @@ export default function SubmitMessage(props) {
     start + timer + transition,
     props.respons
   );
+  const validation = props.respons && (props.respons.validation ? styles.success : styles.error);
 
   return (
     <>
       {props.respons && (
-        <Container className={delay ? "active " + props.respons.validation : props.respons.validation}>
-          <Content>
+        <div className={delay ? styles.container + " " + validation + " " + styles.active : styles.container + " " + validation}>
+          <div className={styles.content}>
             <div>
               <button onClick={close}>{BARCLOSED_ICON}</button>
             </div>
             <div>{props.respons.message}</div>
-          </Content>
-        </Container>
+          </div>
+        </div>
       )}
     </>
   );

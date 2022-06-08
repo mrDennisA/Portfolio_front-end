@@ -7,27 +7,28 @@ import Heading from "../Heading";
 import InView from "../../Layout/InView";
 import LinkList from "../LinkList";
 
-import * as S from "./index.styled";
+// Styles
+import styles from "./about.module.css";
 
 export default function About(props) {
   // console.log(props);
   const { url, alternativeText } = props.data.cover.data.attributes;
   return (
-    <S.Section>
+    <section className={styles.section}>
       <InView delay={0}>
-        <S.Content>
+        <div className={styles.content}>
           <div>
             <Image src={url} layout="fill" objectFit="cover" alt={alternativeText} />
           </div>
-          <S.Element>
+          <div className={styles.info}>
             <Heading>{props.data.content.title}</Heading>
-            <S.Text>
+            <div className={styles.text}>
               <ReactMarkdown>{props.data.content.richText}</ReactMarkdown>
-            </S.Text>
+            </div>
             <LinkList data={props.data.links} />
-          </S.Element>
-        </S.Content>
+          </div>
+        </div>
       </InView>
-    </S.Section>
+    </section>
   );
 }

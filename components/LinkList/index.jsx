@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 
-import * as S from "./index.styled";
+import styles from "./linkList.module.css";
 
 export default function LinkList(props) {
   return (
-    <S.Links>
+    <div className={styles.links}>
       {props.data.map((item) => {
         return (
           <React.Fragment key={item.id}>
@@ -16,6 +16,6 @@ export default function LinkList(props) {
           </React.Fragment>
         );
       })}
-    </S.Links>
+    </div>
   );
 }

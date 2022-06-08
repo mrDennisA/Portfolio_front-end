@@ -13,7 +13,8 @@
   --shadow01: hsl(0, 0%, 80%);
   --shadow02: hsl(0, 0%, 90%);
 
-  --green: #5dad58;
+  --success: #5dad58;
+  --error: #c41f2b;
 }
 
 * {

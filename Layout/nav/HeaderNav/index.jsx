@@ -5,7 +5,7 @@ import ActiveLink from "../../../components/ActiveLink";
 
 // Styles
 
-import styles from "./index.module.css";
+import styles from "./headerNav.module.css";
 
 export default function HeaderNav() {
   const LinkArray = () => {

@@ -8,7 +8,6 @@ import InView from "../../Layout/InView";
 import LinkList from "../LinkList";
 
 // Styles
-import * as S from "./index.styled";
 import styles from "./index.module.css";
 
 export default function Hero(props) {

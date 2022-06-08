@@ -7,7 +7,7 @@
 
 /* ARROW */
 .arrow {
-  fill: var(--pink);
+  fill: black;
 }
 
 /* BAR OPEN */
@@ -16,13 +16,13 @@
 }
 
 .bar-open rect {
-  fill: var(--pink);
+  fill: black;
 }
 
 /* BAR CLOSED */
 .bar-closed .st0 {
   fill: none;
-  stroke: var(--pink);
+  stroke: black;
   stroke-width: 2;
   stroke-miterlimit: 10;
 }
