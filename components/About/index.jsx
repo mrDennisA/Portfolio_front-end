@@ -16,12 +16,12 @@ export default function About(props) {
   return (
     <section className={styles.section}>
       <div className={styles.content}>
-        <InView delay={0}>
+        <InView delay={100}>
           <div>
             <Image src={url} layout="fill" objectFit="cover" alt={alternativeText} />
           </div>
         </InView>
-        <InView delay={100}>
+        <InView delay={0}>
           <div className={styles.info}>
             <Heading>{props.data.content.title}</Heading>
             <div className={styles.text}>
