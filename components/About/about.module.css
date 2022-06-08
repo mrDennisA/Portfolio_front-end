@@ -47,11 +47,6 @@
   gap: 2rem;
 }
 
-.info:first-child {
-  box-shadow: 0 2px 4px var(--shadow01);
-  max-height: 400px;
-}
-
 .text {
   display: flex;
   flex-direction: column;

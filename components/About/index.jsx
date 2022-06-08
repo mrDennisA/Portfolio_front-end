@@ -15,11 +15,13 @@ export default function About(props) {
   const { url, alternativeText } = props.data.cover.data.attributes;
   return (
     <section className={styles.section}>
-      <InView delay={0}>
-        <div className={styles.content}>
+      <div className={styles.content}>
+        <InView delay={0}>
           <div>
             <Image src={url} layout="fill" objectFit="cover" alt={alternativeText} />
           </div>
+        </InView>
+        <InView delay={100}>
           <div className={styles.info}>
             <Heading>{props.data.content.title}</Heading>
             <div className={styles.text}>
@@ -27,8 +29,8 @@ export default function About(props) {
             </div>
             <LinkList data={props.data.links} />
           </div>
-        </div>
-      </InView>
+        </InView>
+      </div>
     </section>
   );
 }

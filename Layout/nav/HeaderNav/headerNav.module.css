@@ -31,11 +31,3 @@
   display: flex;
   gap: 1rem;
 }
-
-.navlink a.active {
-  color: var(--red);
-}
-
-.navlink a:hover:not(.active) {
-  text-decoration-color: var(--red);
-}
