@@ -5,7 +5,7 @@ import Image from "next/image";
 import Heading from "../Heading";
 
 // Styles
-import * as S from "./index.styled";
+import styles from "./card.module.css";
 
 export default function Card(props) {
   // console.log(props.data.attributes.cover.data.attributes);
@@ -15,12 +15,12 @@ export default function Card(props) {
 
   return (
     <Link href={`/projects/${slug}`}>
-      <S.Content>
+      <a className={styles.content}>
         <Image src={cover.url} quality={100} layout="fill" objectFit="cover" alt={cover.alternativeText} />
-        <S.Overlay>
+        <div className={styles.overlay}>
           <Heading element="h4">{title}</Heading>
-        </S.Overlay>
-      </S.Content>
+        </div>
+      </a>
     </Link>
   );
 }

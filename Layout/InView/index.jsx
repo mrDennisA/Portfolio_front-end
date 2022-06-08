@@ -1,5 +1,9 @@
-import * as S from "./index.styled";
+import styles from "./inView.module.css";
 
 export default function InView({ children, delay = 0 }) {
-  return <S.Conteiner delay={delay}>{children}</S.Conteiner>;
+  return (
+    <div className={styles.container} style={{ animationDelay: delay + "ms" }}>
+      {children}
+    </div>
+  );
 }

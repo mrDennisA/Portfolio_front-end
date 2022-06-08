@@ -2,13 +2,13 @@ import Card from "../Card";
 
 import InView from "../../Layout/InView";
 
-import * as S from "./index.styled";
+import styles from "./projects.module.css";
 
 export default function Projects(props) {
   // console.log(props);
   return (
-    <S.Section>
-      <S.Content>
+    <section className={styles.section}>
+      <div className={styles.content}>
         {props.data.map((item, index) => {
           const delay = (index + 1) * 100;
           return (
@@ -17,7 +17,7 @@ export default function Projects(props) {
             </InView>
           );
         })}
-      </S.Content>
-    </S.Section>
+      </div>
+    </section>
   );
 }

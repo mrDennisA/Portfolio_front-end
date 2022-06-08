@@ -35,9 +35,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Layout>
-      <LoadingTransition loading={loading}>
-        <Component {...pageProps} />
-      </LoadingTransition>
+      {/* <LoadingTransition loading={loading}> */}
+      <Component {...pageProps} />
+      {/* </LoadingTransition> */}
     </Layout>
   );
 }

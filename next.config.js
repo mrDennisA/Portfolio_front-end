@@ -6,10 +6,14 @@ const nextConfig = {
 // module.exports = nextConfig;
 module.exports = {
   nextConfig,
+  compiler: {
+    // ssr and displayName are configured by default
+    styledComponents: true,
+  },
   images: {
     domains: ["res.cloudinary.com"],
   },
-  experimental: {
-    scrollRestoration: true,
-  },
+  // experimental: {
+  //   scrollRestoration: true,
+  // },
 };

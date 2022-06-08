@@ -1,7 +1,8 @@
 import React from "react";
 
 import * as S from "./index.styled";
+import styles from "./loadingTransition.module.css";
 
 export default function LoadingTrasition(props) {
-  return <S.Container className={props.loading ? "active" : ""}>{props.children}</S.Container>;
+  return <div className={props.loading ? styles.container + " " + styles.active : styles.container}>{props.children}</div>;
 }

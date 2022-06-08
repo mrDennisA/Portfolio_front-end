@@ -1,20 +1,22 @@
-import styled from "styled-components";
-
-export const Section = styled.section`
+.section {
   margin: 0 auto;
   max-width: var(--maxWidth);
   padding-bottom: 8rem;
-`;
+}
 
-export const Content = styled.div`
+.content {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
 
-  @media only screen and (min-width: 576px) {
+@media only screen and (min-width: 576px) {
+  .content {
     grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
+  .content {
     grid-template-columns: repeat(3, 1fr);
   }
-`;
+}
