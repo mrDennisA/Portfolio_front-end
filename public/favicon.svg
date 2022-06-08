@@ -1,1 +1,37 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:none;stroke:#b31d17;stroke-miterlimit:10;stroke-width:32px;}</style></defs><rect class="cls-1" width="256" height="256"/><path class="cls-2" d="M32,48a80,80,0,0,1,0,160"/><path class="cls-2" d="M128,48a80,80,0,0,1,80,80"/><line class="cls-2" x1="208" y1="224" x2="208" y2="128"/></svg>
+<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke: #b31d17;
+        stroke-miterlimit: 10;
+        stroke-width: 32px;
+      }
+
+      .cls-2,
+      .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-3" width="256" height="256" />
+    </clipPath>
+  </defs>
+  <rect class="cls-1" width="256" height="256" />
+  <g class="cls-4">
+    <path class="cls-2" d="M64,128.5c0-39.76,32.24-72,72-72" />
+    <circle class="cls-1" cx="48" cy="128" r="104" />
+    <path class="cls-2" d="M48,56c39.76,0,72,32.24,72,72s-32.24,72-72,72" />
+    <path class="cls-2" d="M136,56.5c39.76,0,72,32.24,72,72" />
+    <line class="cls-2" x1="208" y1="216" x2="208" y2="128" />
+    <line class="cls-2" x1="32" y1="56" x2="48" y2="56" />
+    <line class="cls-2" x1="32" y1="200" x2="48" y2="200" />
+  </g>
+</svg>
