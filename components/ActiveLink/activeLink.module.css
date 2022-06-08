@@ -1,3 +1,7 @@
-.active {
+.link.active {
   color: var(--red);
+}
+
+.link:hover:not(.active) {
+  text-decoration-color: var(--red);
 }

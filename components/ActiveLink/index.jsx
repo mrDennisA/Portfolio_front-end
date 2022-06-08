@@ -9,7 +9,7 @@ const ActiveLink = ({ href, children }) => {
 
   return (
     <Link href={href}>
-      <a className={active}>{children}</a>
+      <a className={styles.link + " " + active}>{children}</a>
     </Link>
   );
 };
