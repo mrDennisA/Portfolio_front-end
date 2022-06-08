@@ -3,11 +3,11 @@ import axios from "axios";
 // API
 import { INFO_URL } from "../../constants/api";
 
+// Components
 import Head from "../../Layout/Head";
-
 import Wrapper from "../../Layout/Wrapper";
 import About from "../../components/About";
-import ContactForm from "../../components/form/ContactForm";
+// import ContactForm from "../../components/form/ContactForm";
 
 export default function Info(props) {
   // console.log(props);
@@ -16,7 +16,7 @@ export default function Info(props) {
       <Head title={props.info.head} />
       <Wrapper>
         <About data={props.info} />
-        <ContactForm />
+        {/* <ContactForm /> */}
       </Wrapper>
     </>
   );
