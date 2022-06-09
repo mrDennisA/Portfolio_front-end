@@ -4,4 +4,5 @@
 
 .link:hover:not(.active) {
   text-decoration-color: var(--red);
+  text-underline-offset: 3px;
 }

@@ -5,6 +5,8 @@
   --red: hsl(8, 100%, 35%);
   --red50: hsla(8, 100%, 35%, 25%);
 
+  --black: hsl(0, 0%, 0%);
+
   --white: hsla(0, 0%, 100%, 100%);
   --white80: hsla(0, 0%, 100%, 80%);
   --white50: hsla(0, 0%, 100%, 50%);
@@ -23,4 +25,9 @@
 
 h1 {
   color: var(--red);
+}
+
+a,
+button {
+  color: var(--black);
 }

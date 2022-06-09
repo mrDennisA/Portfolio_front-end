@@ -19,4 +19,5 @@
 
 .links a:hover {
   text-decoration-color: var(--red);
+  text-underline-offset: 3px;
 }
