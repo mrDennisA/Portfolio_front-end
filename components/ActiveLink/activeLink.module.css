@@ -1,8 +1,23 @@
-.link.active {
+.link span {
+  position: relative;
+}
+
+.link span::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(5px);
+  height: 2px;
+  transition: var(--timer) ease-in-out;
+}
+
+.link.active span {
   color: var(--red);
 }
 
-.link:hover:not(.active) {
-  text-decoration-color: var(--red);
-  text-underline-offset: 3px;
+.link:hover:not(.active) span::after {
+  background-color: var(--red);
+  transform: translateY(1px);
 }

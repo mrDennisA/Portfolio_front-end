@@ -11,7 +11,9 @@ export default function LinkList(props) {
           <React.Fragment key={item.id}>
             <span>-</span>
             <Link href={item.link}>
-              <a>{item.title}</a>
+              <a>
+                <span>{item.title}</span>
+              </a>
             </Link>
           </React.Fragment>
         );

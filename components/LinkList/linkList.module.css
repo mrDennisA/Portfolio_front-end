@@ -3,11 +3,11 @@
   gap: 0.5rem;
 }
 
-.links span {
+.links > span {
   line-height: 16px;
 }
 
-.links span:first-child {
+.links > span:first-child {
   display: none;
 }
 
@@ -17,7 +17,22 @@
   margin: -0.5rem;
 }
 
-.links a:hover {
-  text-decoration-color: var(--red);
-  text-underline-offset: 3px;
+.links a > span {
+  position: relative;
+}
+
+.links a > span::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(5px);
+  height: 2px;
+  transition: var(--timer) ease-in-out;
+}
+
+.links a:hover > span::after {
+  background-color: var(--red);
+  transform: translateY(1px);
 }
