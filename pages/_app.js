@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
       <div>
-        <Header />
+        {/* <Header /> */}
         <Component {...pageProps} />
       </div>
       <Footer />
