@@ -1,5 +1,3 @@
-import Layout from "../Layout";
-
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles, lightTheme } from "../styles/global.styled";
 
@@ -9,9 +7,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }
