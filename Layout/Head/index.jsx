@@ -1,11 +1,10 @@
-import NextHead from "next/head";
+import Head from "next/head";
 
-export default function Head({ title = "", description = "" }) {
+export default function HeadContainer({ title = "", description = "" }) {
   return (
-    <NextHead>
+    <Head>
       <title>{title + " - DA"}</title>
       <meta name="description" content={description} />
-      <link rel="shortcut icon" href="/favicon.svg" />
-    </NextHead>
+    </Head>
   );
 }
