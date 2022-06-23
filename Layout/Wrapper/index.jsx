@@ -1,9 +1,9 @@
-import styles from "./wrapper.module.css";
+import * as S from "./styled";
 
 export default function Wrapper({ children }) {
   return (
-    <div className={styles.margin}>
-      <div className={styles.padding}>{children}</div>
-    </div>
+    <S.Margin>
+      <S.Padding>{children}</S.Padding>
+    </S.Margin>
   );
 }

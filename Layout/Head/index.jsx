@@ -1,12 +1,11 @@
 import NextHead from "next/head";
 
-export default function Head(props) {
-  const { title = "", description = "" } = props;
+export default function Head({ title = "", description = "" }) {
   return (
     <NextHead>
-      <title>{title + " | DA-Portfolio"}</title>
+      <title>{title + " - DA"}</title>
       <meta name="description" content={description} />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="shortcut icon" href="/favicon.svg" />
     </NextHead>
   );
 }
