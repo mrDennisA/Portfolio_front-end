@@ -1,10 +1,10 @@
-import Head from "next/head";
+import HeadNext from "next/head";
 
-export default function HeadNext({ title = "", description = "" }) {
+export default function Head({ title = "", description = "" }) {
   return (
-    <Head>
+    <HeadNext>
       <title>{title + " - DA"}</title>
       <meta name="description" content={description} />
-    </Head>
+    </HeadNext>
   );
 }

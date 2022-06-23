@@ -1,8 +1,8 @@
-import HeadNext from "../Layout/Head";
+import Head from "../Layout/Head";
 export default function Home() {
   return (
     <>
-      <HeadNext title="Projects" />
+      <Head title="Projects" />
       <div>Projects</div>
     </>
   );
