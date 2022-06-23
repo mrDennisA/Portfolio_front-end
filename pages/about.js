@@ -1,9 +1,9 @@
-import Head from "../layout/Head";
+import HeadContainer from "../layout/Head";
 
 export default function About() {
   return (
     <>
-      <Head title="About" />
+      <HeadContainer title="About" />
       <div>About</div>
     </>
   );

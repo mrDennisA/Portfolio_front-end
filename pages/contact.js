@@ -1,9 +1,9 @@
-import Head from "../layout/Head";
+import HeadContainer from "../layout/Head";
 
 export default function Contact() {
   return (
     <>
-      <Head title="Contact" />
+      <HeadContainer title="Contact" />
       <div>Contact</div>
     </>
   );
