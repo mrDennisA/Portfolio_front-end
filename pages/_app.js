@@ -1,6 +1,4 @@
-// Components
-import Header from "../layout/Header";
-import Footer from "../layout/Footer";
+import Layout from "../Layout";
 
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles, lightTheme } from "../styles/global.styled";
@@ -11,11 +9,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
-      <div>
-        {/* <Header /> */}
+      <Layout>
         <Component {...pageProps} />
-      </div>
-      <Footer />
+      </Layout>
     </ThemeProvider>
   );
 }
