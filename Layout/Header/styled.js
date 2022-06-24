@@ -14,6 +14,7 @@ export const Content = styled.div`
 `;
 
 export const Nav = styled.nav`
+  position: relative;
   display: flex;
   gap: 1rem;
 
@@ -21,4 +22,16 @@ export const Nav = styled.nav`
     padding: 0.5rem;
     margin: -0.5rem;
   }
+`;
+
+export const Slider = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: calc(${({ slider }) => slider.width + "px"} - 1rem);
+  transform: translate(calc(${({ slider }) => slider.left + "px"} + 0.5rem), 2px);
+  background-color: ${({ theme }) => theme.textColor};
+
+  transition: ${({ theme }) => theme.timer} ease-in-out;
 `;

@@ -6,7 +6,7 @@ export const lightTheme = {
 
   radius: "4px",
   maxWidth: "1366px",
-  timer: "0.3s",
+  timer: "0.2s",
   fontPrimary: "Work Sans, sans-serif",
 };
 
