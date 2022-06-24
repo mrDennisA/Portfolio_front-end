@@ -26,6 +26,7 @@ export const Nav = styled.nav`
 
 export const Slider = styled.div`
   position: absolute;
+  z-index: -1;
   left: 0;
   bottom: 0;
   height: 2px;
