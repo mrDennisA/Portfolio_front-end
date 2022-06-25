@@ -13,25 +13,31 @@ export const Content = styled.div`
   align-items: center;
 `;
 
-export const Nav = styled.nav`
+export const Menu = styled.nav`
   position: relative;
   display: flex;
   gap: 1rem;
 
   a {
-    padding: 0.5rem;
-    margin: -0.5rem;
+    padding: 0.25rem;
+    margin: -0.25rem;
+    /* transform: translateY(0); */
+    transition: ${({ theme }) => theme.timer} ease-in-out;
+
+    /* :hover:not(.active) {
+      transform: translateY(-4px);
+    } */
   }
 `;
 
-export const Slider = styled.div`
+export const Marker = styled.div`
   position: absolute;
   z-index: -1;
   left: 0;
   bottom: 0;
   height: 2px;
-  width: calc(${({ slider }) => slider.width + "px"} - 1rem);
-  transform: translate(calc(${({ slider }) => slider.left + "px"} + 0.5rem), 2px);
+  width: calc(${({ marker }) => marker.width + "px"} - 1rem);
+  transform: translate(calc(${({ marker }) => marker.left + "px"} + 0.5rem), 2px);
   background-color: ${({ theme }) => theme.textColor};
 
   transition: ${({ theme }) => theme.timer} ease-in-out;

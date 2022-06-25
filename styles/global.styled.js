@@ -2,11 +2,12 @@ import { createGlobalStyle } from "styled-components";
 
 export const lightTheme = {
   textColor: "#262626",
+  // textColor: "red",
   bgColor: "#F2F2F2",
 
   radius: "4px",
   maxWidth: "1366px",
-  timer: "0.2s",
+  timer: ".2s",
   fontPrimary: "Work Sans, sans-serif",
 };
 
@@ -22,6 +23,8 @@ export const GlobalStyles = createGlobalStyle`
     border: unset;
     outline: unset;
     background: unset;
+
+    cursor: none !important;
   }
 
   body{

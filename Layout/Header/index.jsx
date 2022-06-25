@@ -1,48 +1,36 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback, useContext } from "react";
 
+// Components
 import Wrapper from "../Wrapper";
 import * as Icon from "../../components/Icons";
 
+import { CursorContext } from "../../context/CursorContextProvider";
+
+// Styles
 import * as S from "./styled";
 
 export default function Header() {
-  const [slider, useSlider] = useState(false);
-  const sliderRef = useRef(null);
+  const [, setCursor] = useContext(CursorContext);
+
+  const toggleCursor = useCallback(() => {
+    setCursor(({ active }) => ({ active: !active }));
+  });
+
+  const [marker, setMarker] = useState(null);
+  const markerRef = useRef(null);
   const router = useRouter();
 
-  const Test = () => {
-    useSlider({ left: sliderRef.current.offsetLeft, width: sliderRef.current.offsetWidth });
+  const setDim = (left, width) => {
+    setMarker({ left: left, width: width });
   };
 
   useEffect(() => {
-    if (router.pathname === sliderRef.current.pathname) {
-      Test();
+    if (router.pathname === markerRef.current.pathname) {
+      setDim(markerRef.current.offsetLeft, markerRef.current.offsetWidth);
     }
   }, [router]);
-
-  // Toggle Active Link
-  const LinkActive = ({ children, href }) => {
-    const match = router.pathname === href;
-
-    return (
-      <Link href={href}>
-        <a ref={match ? sliderRef : null}>{children}</a>
-      </Link>
-    );
-  };
-
-  // Link Array
-  const LinkArray = () => {
-    return (
-      <>
-        <LinkActive href="/">Projects</LinkActive>
-        <LinkActive href="/about">About</LinkActive>
-        <LinkActive href="/contact">Contact</LinkActive>
-      </>
-    );
-  };
 
   return (
     <S.Header>
@@ -50,15 +38,47 @@ export default function Header() {
         <S.Content>
           <div>
             <Link href="/">
-              <a>
+              <a onMouseEnter={toggleCursor} onMouseLeave={toggleCursor}>
                 <Icon.Logo />
               </a>
             </Link>
           </div>
-          <S.Nav>
-            {slider && <S.Slider slider={slider} />}
-            <LinkArray />
-          </S.Nav>
+          <nav>
+            <S.Menu>
+              {marker && <S.Marker marker={marker} />}
+              {/* <LinkArray /> */}
+              <Link href="/">
+                <a
+                  ref={router.pathname === "/" && markerRef}
+                  className={router.pathname === "/" ? "active" : null}
+                  onMouseEnter={toggleCursor}
+                  onMouseLeave={toggleCursor}
+                >
+                  Projects
+                </a>
+              </Link>
+              <Link href="/about">
+                <a
+                  ref={router.pathname === "/about" && markerRef}
+                  className={router.pathname === "/" ? "active" : null}
+                  onMouseEnter={toggleCursor}
+                  onMouseLeave={toggleCursor}
+                >
+                  About
+                </a>
+              </Link>
+              <Link href="/contact">
+                <a
+                  ref={router.pathname === "/contact" && markerRef}
+                  className={router.pathname === "/contact" ? "active" : null}
+                  onMouseEnter={toggleCursor}
+                  onMouseLeave={toggleCursor}
+                >
+                  Contact
+                </a>
+              </Link>
+            </S.Menu>
+          </nav>
         </S.Content>
       </Wrapper>
     </S.Header>
