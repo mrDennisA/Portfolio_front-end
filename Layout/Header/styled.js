@@ -36,8 +36,8 @@ export const Marker = styled.div`
   left: 0;
   bottom: 0;
   height: 2px;
-  width: calc(${({ marker }) => marker.width + "px"} - 1rem);
-  transform: translate(calc(${({ marker }) => marker.left + "px"} + 0.5rem), 2px);
+  width: calc(${({ marker }) => marker.width + "px"} - 0.5rem);
+  transform: translate(calc(${({ marker }) => marker.left + "px"} + 0.25rem), 2px);
   background-color: ${({ theme }) => theme.textColor};
 
   transition: ${({ theme }) => theme.timer} ease-in-out;
