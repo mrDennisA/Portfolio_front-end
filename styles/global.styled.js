@@ -1,14 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 
 export const lightTheme = {
-  textColor: "#262626",
-  // textColor: "red",
-  bgColor: "#F2F2F2",
+  textColor: "hsl(0, 0%, 10%)",
+  bgColor: "hsl(0, 0%, 90%)",
+  blendColor: "hsl(0, 0%, 90%)",
 
   radius: "4px",
   maxWidth: "1366px",
   timer: ".2s",
   fontPrimary: "Work Sans, sans-serif",
+
+  sm: "576px",
+  md: "768px",
+  lg: "992px",
+  xl: "1200px",
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -23,14 +28,14 @@ export const GlobalStyles = createGlobalStyle`
     border: unset;
     outline: unset;
     background: unset;
-
-    cursor: none !important;
+  
   }
 
   body{
     color: ${({ theme }) => theme.textColor};
     background-color: ${({ theme }) => theme.bgColor};
-    
+
+
     font-family: ${({ theme }) => theme.fontPrimary};
    
   }
@@ -40,7 +45,13 @@ export const GlobalStyles = createGlobalStyle`
 
     color: ${({ theme }) => theme.textColor};
     font-weight: 500;
+
+    cursor: pointer;
   
+  }
+
+  button {
+    cursor: pointer;
   }
 
   #__next {

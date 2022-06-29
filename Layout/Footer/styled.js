@@ -5,7 +5,7 @@ export const Footer = styled.footer`
   justify-content: center;
   align-items: flex-start;
   gap: 1rem;
-  padding-top: 0.5rem;
+
   height: 64px;
 
   a {

@@ -1,86 +1,115 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState, useRef, useEffect, useCallback, useContext } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // Components
-import Wrapper from "../Wrapper";
 import * as Icon from "../../components/Icons";
-
-import { CursorContext } from "../../context/CursorContextProvider";
 
 // Styles
 import * as S from "./styled";
+import InView from "../../components/InView";
 
 export default function Header() {
-  const [, setCursor] = useContext(CursorContext);
-
-  const toggleCursor = useCallback(() => {
-    setCursor(({ active }) => ({ active: !active }));
-  });
-
+  const [active, setActive] = useState(false);
   const [marker, setMarker] = useState(null);
   const markerRef = useRef(null);
   const router = useRouter();
 
-  const setDim = (left, width) => {
-    setMarker({ left: left, width: width });
+  const toggleMenu = () => {
+    if (window.innerWidth < 576) {
+      setActive(!active);
+      document.body.style.overflow = document.body.style.overflow ? null : "hidden";
+    }
+  };
+
+  const closeMenu = () => {
+    setActive(false);
+    document.body.style.overflow = null;
   };
 
   useEffect(() => {
-    if (router.pathname === markerRef.current.pathname) {
-      setDim(markerRef.current.offsetLeft, markerRef.current.offsetWidth);
+    if (markerRef.current) {
+      if (router.pathname === markerRef.current.pathname) {
+        setMarker({ left: markerRef.current.offsetLeft, width: markerRef.current.offsetWidth + "px" });
+      }
     }
-  }, [router]);
+
+    const handleSize = () => {
+      if (window.innerWidth >= 576) {
+        setActive(false);
+        setMarker({ left: markerRef.current.offsetLeft, width: markerRef.current.offsetWidth + "px" });
+        document.body.style.overflow = null;
+      } else {
+        setMarker(null);
+      }
+    };
+
+    window.addEventListener("resize", handleSize);
+    return () => window.removeEventListener("resize", handleSize);
+  }, [router, active]);
+
+  const ActiveLink = ({ matchRef = false, href, children }) => {
+    const matchPath = router.pathname === href;
+    return (
+      <Link href={href}>
+        <a ref={matchRef && matchPath && markerRef} className={matchPath ? "active" : null} onClick={toggleMenu}>
+          {children}
+        </a>
+      </Link>
+    );
+  };
 
   return (
     <S.Header>
-      <Wrapper>
-        <S.Content>
-          <div>
-            <Link href="/">
-              <a onMouseEnter={toggleCursor} onMouseLeave={toggleCursor}>
-                <Icon.Logo />
+      <Link href="/">
+        <S.Logo onClick={closeMenu}>
+          <Icon.Logo active={active} />
+        </S.Logo>
+      </Link>
+      <S.Button onClick={toggleMenu}>
+        <Icon.Menu active={active} />
+      </S.Button>
+      <S.Mobile className={active ? "active" : null}>
+        <div>
+          <InView active={active} delay={200}>
+            <ActiveLink href="/">Projects</ActiveLink>
+          </InView>
+          <InView active={active} delay={300}>
+            <ActiveLink href="/about">About</ActiveLink>
+          </InView>
+          <InView active={active} delay={400}>
+            <ActiveLink href="/contact">Contact</ActiveLink>
+          </InView>
+        </div>
+        <div>
+          <InView active={active} delay={500}>
+            <Link href="https://github.com/mrDennisA">
+              <a target="_blank" rel="noopener noreferrer">
+                <Icon.Github active={active} />
               </a>
             </Link>
-          </div>
-          <nav>
-            <S.Menu>
-              {marker && <S.Marker marker={marker} />}
-              {/* <LinkArray /> */}
-              <Link href="/">
-                <a
-                  ref={router.pathname === "/" && markerRef}
-                  className={router.pathname === "/" ? "active" : null}
-                  onMouseEnter={toggleCursor}
-                  onMouseLeave={toggleCursor}
-                >
-                  Projects
-                </a>
-              </Link>
-              <Link href="/about">
-                <a
-                  ref={router.pathname === "/about" && markerRef}
-                  className={router.pathname === "/" ? "active" : null}
-                  onMouseEnter={toggleCursor}
-                  onMouseLeave={toggleCursor}
-                >
-                  About
-                </a>
-              </Link>
-              <Link href="/contact">
-                <a
-                  ref={router.pathname === "/contact" && markerRef}
-                  className={router.pathname === "/contact" ? "active" : null}
-                  onMouseEnter={toggleCursor}
-                  onMouseLeave={toggleCursor}
-                >
-                  Contact
-                </a>
-              </Link>
-            </S.Menu>
-          </nav>
-        </S.Content>
-      </Wrapper>
+          </InView>
+          <InView active={active} delay={600}>
+            <Link href="https://www.linkedin.com/in/dennis-alekseev/">
+              <a target="_blank" rel="noopener noreferrer">
+                <Icon.LinkedIn active={active} />
+              </a>
+            </Link>
+          </InView>
+        </div>
+      </S.Mobile>
+      <S.Desktop>
+        {marker && <S.Marker marker={marker} />}
+        <ActiveLink matchRef={true} href="/">
+          Projects
+        </ActiveLink>
+        <ActiveLink matchRef={true} href="/about">
+          About
+        </ActiveLink>
+        <ActiveLink matchRef={true} href="/contact">
+          Contact
+        </ActiveLink>
+      </S.Desktop>
     </S.Header>
   );
 }
