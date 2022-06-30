@@ -11,7 +11,7 @@ export default function Contact() {
     <>
       <Head title="Contact" />
       <Margin width={theme.midWidth}>
-        <Banner>Contact</Banner>
+        <Banner position="center">Contact</Banner>
       </Margin>
     </>
   );

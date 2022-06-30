@@ -4,9 +4,9 @@ import InView from "../InView";
 // Styles
 import * as S from "./styles";
 
-export default function Banner({ children }) {
+export default function Banner({ position = "left", children }) {
   return (
-    <S.Section>
+    <S.Section className={position}>
       <div>
         <InView delay={100}>
           <Heading>{children}</Heading>
