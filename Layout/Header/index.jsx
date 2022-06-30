@@ -74,22 +74,22 @@ export default function Header() {
           <InView active={active} delay={200}>
             <ActiveLink href="/">Projects</ActiveLink>
           </InView>
-          <InView active={active} delay={300}>
+          <InView active={active} delay={250}>
             <ActiveLink href="/about">About</ActiveLink>
           </InView>
-          <InView active={active} delay={400}>
+          <InView active={active} delay={300}>
             <ActiveLink href="/contact">Contact</ActiveLink>
           </InView>
         </div>
         <div>
-          <InView active={active} delay={500}>
+          <InView active={active} delay={350}>
             <Link href="https://github.com/mrDennisA">
               <a target="_blank" rel="noopener noreferrer">
                 <Icon.Github active={active} />
               </a>
             </Link>
           </InView>
-          <InView active={active} delay={600}>
+          <InView active={active} delay={400}>
             <Link href="https://www.linkedin.com/in/dennis-alekseev/">
               <a target="_blank" rel="noopener noreferrer">
                 <Icon.LinkedIn active={active} />

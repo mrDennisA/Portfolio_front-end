@@ -4,31 +4,28 @@ export const Header = styled.header`
   position: relative;
 `;
 
-export const Content = styled.div`
-  position: relative;
-`;
-
 export const Logo = styled.a`
-  z-index: 999;
+  z-index: 9999;
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(1rem, 2rem);
+  transform: translateY(2rem);
+
   display: flex;
   padding: 0.25rem;
   margin: -0.25rem;
 
-  @media only screen and (min-width: ${({ theme }) => theme.sm}) {
+  /* @media only screen and (min-width: ${({ theme }) => theme.sm}) {
     transform: translate(2rem, 2rem);
-  }
+  } */
 `;
 
 export const Button = styled.button`
-  z-index: 999;
+  z-index: 9999;
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(-1rem, 2rem);
+  transform: translateY(2rem);
 
   display: flex;
   padding: 0.25rem;
@@ -40,10 +37,11 @@ export const Button = styled.button`
 `;
 
 export const Desktop = styled.nav`
+  z-index: 9999;
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(-2rem, 2rem);
+  transform: translateY(2rem);
   display: none;
   gap: 1rem;
 
@@ -75,6 +73,7 @@ export const Marker = styled.div`
 `;
 
 export const Mobile = styled.nav`
+  z-index: 999;
   position: fixed;
   inset: 0 0 0 0;
   transform: translateY(-100%);
@@ -102,19 +101,15 @@ export const Mobile = styled.nav`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    transform: translate(0, -2rem);
-    transition: 1s;
-
-    &.visible {
-      transform: translate(0, 0);
-    }
 
     a {
       color: ${({ theme }) => theme.bgColor};
       font-size: 48px;
+
       &.active {
         text-decoration: underline;
         text-decoration-thickness: 2px;
+        text-underline-offset: 8px;
       }
     }
   }

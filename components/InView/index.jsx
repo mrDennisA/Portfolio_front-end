@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 import * as S from "./styled";
 
 export default function InView({ children, active = true, delay = 0 }) {

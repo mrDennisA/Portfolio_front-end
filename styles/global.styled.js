@@ -5,8 +5,11 @@ export const lightTheme = {
   bgColor: "hsl(0, 0%, 90%)",
   blendColor: "hsl(0, 0%, 90%)",
 
+  shadowColor: "hsla(0, 0%, 10%, 20%)",
+
   radius: "4px",
   maxWidth: "1366px",
+  midWidth: "1024px",
   timer: ".2s",
   fontPrimary: "Work Sans, sans-serif",
 
@@ -37,7 +40,6 @@ export const GlobalStyles = createGlobalStyle`
 
 
     font-family: ${({ theme }) => theme.fontPrimary};
-   
   }
 
   a {
@@ -59,4 +61,14 @@ export const GlobalStyles = createGlobalStyle`
     grid-template-rows: 1fr auto;
     min-height: 100vh;
   }
+
+h1, h2, h3, h4{
+  /* text-shadow: 0 2px 6px ${({ theme }) => theme.shadowColor}; */
+}
+
+  h1{
+    font-size: clamp(3rem, 1.6364rem + 6.8182vw, 6rem);
+
+  }
+
 `;
