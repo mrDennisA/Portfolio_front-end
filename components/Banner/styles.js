@@ -12,6 +12,6 @@ export const Section = styled.section`
   }
 
   & > * {
-    transform: translatey(50%);
+    transform: translateY(50%);
   }
 `;
