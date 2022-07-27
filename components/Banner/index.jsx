@@ -1,16 +1,24 @@
+import { useRef } from "react";
+
 import Heading from "../Heading";
-import InView from "../InView";
+import DelayView from "../DelayView";
+
+// Hooks
+import useObserver from "../../hooks/useObserver";
 
 // Styles
 import * as S from "./styles";
 
 export default function Banner({ position = "left", children }) {
+  const ref = useRef();
+  const inView = useObserver(ref);
+
   return (
-    <S.Section className={position}>
+    <S.Section ref={ref} className={position}>
       <div>
-        <InView delay={100}>
+        <DelayView active={inView} delay={100}>
           <Heading>{children}</Heading>
-        </InView>
+        </DelayView>
       </div>
     </S.Section>
   );

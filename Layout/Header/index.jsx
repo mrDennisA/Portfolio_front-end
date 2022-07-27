@@ -7,7 +7,7 @@ import * as Icon from "../../components/Icons";
 
 // Styles
 import * as S from "./styled";
-import InView from "../../components/InView";
+import DelayView from "../../components/DelayView";
 
 export default function Header() {
   const [active, setActive] = useState(false);
@@ -71,31 +71,31 @@ export default function Header() {
       </S.Button>
       <S.Mobile className={active ? "active" : null}>
         <div>
-          <InView active={active} delay={200}>
+          <DelayView active={active} delay={150}>
             <ActiveLink href="/">Projects</ActiveLink>
-          </InView>
-          <InView active={active} delay={250}>
+          </DelayView>
+          <DelayView active={active} delay={200}>
             <ActiveLink href="/about">About</ActiveLink>
-          </InView>
-          <InView active={active} delay={300}>
+          </DelayView>
+          <DelayView active={active} delay={250}>
             <ActiveLink href="/contact">Contact</ActiveLink>
-          </InView>
+          </DelayView>
         </div>
         <div>
-          <InView active={active} delay={350}>
+          <DelayView active={active} delay={300}>
             <Link href="https://github.com/mrDennisA">
               <a target="_blank" rel="noopener noreferrer">
                 <Icon.Github active={active} />
               </a>
             </Link>
-          </InView>
-          <InView active={active} delay={400}>
+          </DelayView>
+          <DelayView active={active} delay={350}>
             <Link href="https://www.linkedin.com/in/dennis-alekseev/">
               <a target="_blank" rel="noopener noreferrer">
                 <Icon.LinkedIn active={active} />
               </a>
             </Link>
-          </InView>
+          </DelayView>
         </div>
       </S.Mobile>
       <S.Desktop>

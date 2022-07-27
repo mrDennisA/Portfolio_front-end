@@ -1,11 +1,11 @@
 import styled, { keyframes } from "styled-components";
 
 const inViewAnimation = keyframes`
-  from {
+  0% {
     transform: translateY(1rem);
     opacity: 0;
   }
-  to {
+ 100% {
     transform: translateY(0);
     opacity: 1;
   }`;

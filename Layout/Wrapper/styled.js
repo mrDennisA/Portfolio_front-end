@@ -7,5 +7,5 @@ export const Margin = styled.div`
 `;
 
 export const Padding = styled.div`
-  padding: 0 clamp(1rem, 0.2709rem + 2.0253vw, 2rem);
+  padding: 0 ${({ theme }) => theme.padding};
 `;

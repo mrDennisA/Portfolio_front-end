@@ -1,18 +1,22 @@
 import { useContext, useCallback } from "react";
 
+import LoadingTrasition from "../components/LoadingTransition";
+
 import Header from "./Header";
 import Footer from "./Footer";
-import { Margin, Padding } from "./Wrapper";
+import * as S from "./Wrapper";
 
 export default function Layout({ children }) {
   return (
     <>
-      <Margin>
-        <Padding>
+      <S.Margin>
+        <S.Padding>
           <Header />
-          <main>{children}</main>
-        </Padding>
-      </Margin>
+          <LoadingTrasition>
+            <main>{children}</main>
+          </LoadingTrasition>
+        </S.Padding>
+      </S.Margin>
       <Footer />
     </>
   );
