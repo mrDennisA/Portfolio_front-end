@@ -1,10 +1,10 @@
-import mail from "@sendgrid/mail";
+// import mail from "@sendgrid/mail";
 
-const sgMail = require("@sendgrid/mail");
+const mail = require("@sendgrid/mail");
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+mail.setApiKey(process.env.SENDGRID_API_KEY);
 
-export default function contactForm(req, res) {
+export default async function contactForm(req, res) {
   const body = JSON.parse(req.body);
 
   const message = `
@@ -21,7 +21,7 @@ export default function contactForm(req, res) {
     html: message.replace(/\r\n/g, "<br>"),
   };
 
-  mail.send(data);
+  await mail.send(data);
   console.log(data);
 
   res.status(200).json({ status: "Ok" });
