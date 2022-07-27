@@ -29,7 +29,7 @@ export default function ContactForm() {
     // setSubmitting(true);
     // setRespons(null);
 
-    fetch("/api/contactForm", {
+    await fetch("/api/contactForm", {
       method: "post",
       body: JSON.stringify(data),
     });
