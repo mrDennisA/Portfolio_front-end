@@ -1,7 +1,4 @@
-// import mail from "@sendgrid/mail";
-
 const mail = require("@sendgrid/mail");
-
 mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export default async function contactForm(req, res) {
@@ -22,7 +19,7 @@ export default async function contactForm(req, res) {
   };
 
   await mail.send(data);
-  console.log(data);
+  // console.log(data);
 
   res.status(200).json({ status: "Ok" });
 }

@@ -3,9 +3,13 @@ import { createGlobalStyle } from "styled-components";
 export const lightTheme = {
   textColor: "hsl(0, 0%, 10%)",
   bgColor: "hsl(0, 0%, 90%)",
-  blendColor: "hsl(0, 0%, 90%)",
+  grayColor: "hsl(0, 0%, 60%)",
+  // blendColor: "hsl(0, 0%, 90%)",
 
-  shadowColor: "hsla(0, 0%, 10%, 10%)",
+  successColor: "hsl(120, 35%, 35%)",
+  errorColor: "hsl(0, 80%, 40%)",
+
+  shadowColor: "hsla(0, 0%, 10%, 20%)",
 
   radius: "4px",
   maxWidth: "1366px",

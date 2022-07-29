@@ -5,7 +5,7 @@ export const Header = styled.header`
 `;
 
 export const Logo = styled.a`
-  z-index: 9999;
+  z-index: 2000;
   position: absolute;
   top: 0;
   left: 0;
@@ -21,7 +21,7 @@ export const Logo = styled.a`
 `;
 
 export const Button = styled.button`
-  z-index: 9999;
+  z-index: 2000;
   position: absolute;
   top: 0;
   right: 0;
@@ -37,7 +37,7 @@ export const Button = styled.button`
 `;
 
 export const Desktop = styled.nav`
-  z-index: 9999;
+  z-index: 1000;
   position: absolute;
   top: 0;
   right: 0;
@@ -73,7 +73,7 @@ export const Marker = styled.div`
 `;
 
 export const Mobile = styled.nav`
-  z-index: 999;
+  z-index: 1000;
   position: fixed;
   inset: 0 0 0 0;
   transform: translateY(-100%);

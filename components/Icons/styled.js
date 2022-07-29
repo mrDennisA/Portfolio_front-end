@@ -133,3 +133,23 @@ export const Menu = styled.svg`
     }
   }
 `;
+
+export const Closed = styled.svg`
+  width: 32px;
+  height: 32px;
+
+  & > rect {
+    fill: white;
+    width: 24px;
+    height: 2px;
+    transform-origin: 12px 1px;
+  }
+
+  & > :nth-child(1) {
+    transform: translate(4px, 15px) rotate(45deg);
+  }
+
+  & > :nth-child(2) {
+    transform: translate(4px, 15px) rotate(-45deg);
+  }
+`;

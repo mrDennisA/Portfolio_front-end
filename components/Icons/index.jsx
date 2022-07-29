@@ -67,3 +67,12 @@ export const Menu = ({ active = false }) => {
     </S.Menu>
   );
 };
+
+export const Closed = ({ active = false }) => {
+  return (
+    <S.Closed viewBox="0 0 32 32">
+      <rect className={active ? "active" : null} />
+      <rect className={active ? "active" : null} />
+    </S.Closed>
+  );
+};
