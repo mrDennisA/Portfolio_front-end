@@ -33,7 +33,7 @@ export default function ContactForm() {
         method: "POST",
         body: JSON.stringify(data),
       });
-      console.log("data", data);
+      // console.log("data", data);
       setRespons({ message: "Contact Request Submitted Successfully", validation: "success" });
     } catch (error) {
       console.log("error", error);
