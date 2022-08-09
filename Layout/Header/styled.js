@@ -100,7 +100,7 @@ export const Mobile = styled.nav`
   & > :nth-child(1) {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 
     a {
       color: ${({ theme }) => theme.bgColor};

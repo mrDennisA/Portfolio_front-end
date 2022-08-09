@@ -9,7 +9,7 @@ export const lightTheme = {
   successColor: "hsl(120, 35%, 35%)",
   errorColor: "hsl(0, 80%, 40%)",
 
-  shadowColor: "hsla(0, 0%, 10%, 20%)",
+  shadowColor: "hsla(0, 0%, 10%, 10%)",
 
   radius: "4px",
   maxWidth: "1366px",
@@ -17,6 +17,7 @@ export const lightTheme = {
   smallWidth: "544px",
   timer: ".2s",
   padding: "clamp(1rem, 0.5833rem + 2.0833vw, 2rem)",
+  boxShadow: "0 4px 8px",
 
   fontPrimary: "Work Sans, sans-serif",
 
@@ -51,27 +52,31 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
   }
 
-  h1, h2 {
+  h1, h2, h3, h4 {
     font-weight: 600;
   }
 
   h1{
-    font-size: clamp(3.5rem, 2.0417rem + 7.2917vw, 7rem);
+    /* font-size: clamp(3.5rem, 2.0417rem + 7.2917vw, 7rem); */
+    font-size: clamp(3rem, 1.7500rem + 6.2500vw, 6rem);
   }
 
   h2{
     font-size: clamp(2.5rem, 1.8750rem + 3.1250vw, 4rem);
   }
 
-  p, li, td, input, textarea{
+  h4 {
     font-size: clamp(1.125rem, 1.0729rem + 0.2604vw, 1.25rem);
+  }
+  p, li, td, input, textarea{
+    font-size: clamp(1rem, 0.9479rem + 0.2604vw, 1.125rem);
     font-weight: 400;
   }
 
   a {
     display: flex;
     color: ${({ theme }) => theme.textColor};
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
   }
 
@@ -79,8 +84,8 @@ export const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
-  /* * {
-    box-shadow: 0 0 0 1px red inset;
+  /* {
+    outline: 1px red solid;
   } */
 
 

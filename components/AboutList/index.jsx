@@ -25,17 +25,17 @@ export default function AboutList({ data, title, type }) {
         {type === "table" && (
           <S.Table>
             <S.TableBody>
-              {data.map(({ attributes: { card } }, index) => {
+              {data.map(({ attributes }, index) => {
                 return (
                   <S.TableRow key={index}>
                     <S.TableCell>
-                      <span>{card.fromDate ? card.fromDate : ""}</span>
+                      <span>{attributes.fromDate ? attributes.fromDate : ""}</span>
                       <span>{"-"}</span>
-                      <span>{card.toDate ? card.toDate : ""}</span>
+                      <span>{attributes.toDate ? attributes.toDate : ""}</span>
                     </S.TableCell>
                     <S.TableCell>
-                      <span>{card.title}</span>
-                      <span>{card.description}</span>
+                      <Heading element="h4">{attributes.title}</Heading>
+                      <p>{attributes.description}</p>
                     </S.TableCell>
                   </S.TableRow>
                 );

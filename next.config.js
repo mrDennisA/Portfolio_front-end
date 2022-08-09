@@ -12,6 +12,6 @@ module.exports = {
     styledComponents: true,
   },
   images: {
-    domains: ["localhost"],
+    domains: ["res.cloudinary.com"],
   },
 };

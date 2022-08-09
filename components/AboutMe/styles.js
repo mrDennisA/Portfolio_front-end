@@ -24,10 +24,11 @@ export const Media = styled.div`
   aspect-ratio: 1/1;
   width: 100%;
   height: 100%;
-  max-height: 496px;
+  max-height: 480px;
+  box-shadow: ${({ theme }) => theme.boxShadow + " " + theme.shadowColor};
 
   @media only screen and (min-width: ${({ theme }) => theme.sm}) {
-    aspect-ratio: 2/3;
+    /* aspect-ratio: 2/3; */
   }
 
   img {
@@ -35,7 +36,7 @@ export const Media = styled.div`
     border-radius: ${({ theme }) => theme.radius};
 
     @media only screen and (min-width: ${({ theme }) => theme.sm}) {
-      object-fit: contain;
+      /* object-fit: contain; */
     }
   }
 `;

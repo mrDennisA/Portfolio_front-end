@@ -1,5 +1,6 @@
 import { useTheme } from "styled-components";
 
+// Components
 import Head from "../Layout/Head";
 import { Margin } from "../Layout/Wrapper";
 import Banner from "../components/Banner";

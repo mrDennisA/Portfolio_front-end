@@ -23,14 +23,7 @@ export default function AboutMe({ data }) {
       </DelayView>
       <DelayView active={inView} delay={100}>
         <S.Media>
-          <Image
-            src={"http://localhost:1337" + cover.url}
-            width={cover.width}
-            height={cover.height}
-            layout="responsive"
-            quality={100}
-            alt={cover.alternativeText}
-          />
+          <Image src={cover.url} width={cover.width} height={cover.height} layout="responsive" alt={cover.alternativeText} quality={100} />
         </S.Media>
       </DelayView>
     </S.Section>

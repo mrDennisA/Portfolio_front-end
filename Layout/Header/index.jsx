@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 
 // Components
 import * as Icon from "../../components/Icons";
+import ActiveLink from "../../components/ActiveLink";
 
 // Styles
 import * as S from "./styled";
@@ -28,16 +29,20 @@ export default function Header() {
   };
 
   useEffect(() => {
-    if (markerRef.current) {
-      if (router.pathname === markerRef.current.pathname) {
-        setMarker({ left: markerRef.current.offsetLeft, width: markerRef.current.offsetWidth + "px" });
-      }
+    if (markerRef.current && markerRef.current.pathname === router.pathname) {
+      setMarker({ left: markerRef.current.offsetLeft, width: markerRef.current.offsetWidth + "px" });
+    }
+
+    if (!markerRef.current) {
+      setMarker(null);
     }
 
     const handleSize = () => {
       if (window.innerWidth >= 576) {
         setActive(false);
-        setMarker({ left: markerRef.current.offsetLeft, width: markerRef.current.offsetWidth + "px" });
+        if (markerRef.current) {
+          setMarker({ left: markerRef.current.offsetLeft, width: markerRef.current.offsetWidth + "px" });
+        }
         document.body.style.overflow = null;
       } else {
         setMarker(null);
@@ -47,17 +52,6 @@ export default function Header() {
     window.addEventListener("resize", handleSize);
     return () => window.removeEventListener("resize", handleSize);
   }, [router, active]);
-
-  const ActiveLink = ({ matchRef = false, href, children }) => {
-    const matchPath = router.pathname === href;
-    return (
-      <Link href={href}>
-        <a ref={matchRef && matchPath && markerRef} className={matchPath ? "active" : null} onClick={toggleMenu}>
-          {children}
-        </a>
-      </Link>
-    );
-  };
 
   return (
     <S.Header>
@@ -72,13 +66,19 @@ export default function Header() {
       <S.Mobile className={active ? "active" : null}>
         <div>
           <DelayView active={active} delay={150}>
-            <ActiveLink href="/">Projects</ActiveLink>
+            <ActiveLink toggleMenu={toggleMenu} href="/">
+              Projects
+            </ActiveLink>
           </DelayView>
           <DelayView active={active} delay={200}>
-            <ActiveLink href="/about">About</ActiveLink>
+            <ActiveLink toggleMenu={toggleMenu} href="/about">
+              About
+            </ActiveLink>
           </DelayView>
           <DelayView active={active} delay={250}>
-            <ActiveLink href="/contact">Contact</ActiveLink>
+            <ActiveLink toggleMenu={toggleMenu} href="/contact">
+              Contact
+            </ActiveLink>
           </DelayView>
         </div>
         <div>
@@ -100,13 +100,13 @@ export default function Header() {
       </S.Mobile>
       <S.Desktop>
         {marker && <S.Marker marker={marker} />}
-        <ActiveLink matchRef={true} href="/">
+        <ActiveLink ref={markerRef} href="/">
           Projects
         </ActiveLink>
-        <ActiveLink matchRef={true} href="/about">
+        <ActiveLink ref={markerRef} href="/about">
           About
         </ActiveLink>
-        <ActiveLink matchRef={true} href="/contact">
+        <ActiveLink ref={markerRef} href="/contact">
           Contact
         </ActiveLink>
       </S.Desktop>

@@ -10,7 +10,6 @@ export const Section = styled.section`
   margin-top: 0.5rem;
   padding: 0.5rem;
   border-radius: ${({ theme }) => theme.radius};
-  /* box-shadow: 0 4px 8px ${({ theme }) => theme.shadowColor}; */
   max-width: ${({ theme }) => theme.smallWidth};
   width: calc(100% - 1rem);
 

@@ -21,7 +21,7 @@ export const TableBody = styled.tbody`
 export const TableRow = styled.tr`
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 2rem;
+  gap: ${({ theme }) => theme.padding};
 
   @media only screen and (min-width: ${({ theme }) => theme.sm}) {
     grid-template-columns: 2fr 3fr;
@@ -30,7 +30,7 @@ export const TableRow = styled.tr`
 
 export const TableCell = styled.td`
   display: grid;
-  gap: 0.5rem;
+  gap: 0.25rem;
 
   &:first-child {
     grid-template-columns: 1fr auto;
@@ -39,11 +39,8 @@ export const TableCell = styled.td`
 
     @media only screen and (min-width: ${({ theme }) => theme.sm}) {
       grid-template-columns: 1fr auto auto;
+      gap: 0.5rem;
     }
-  }
-
-  &:last-child span:first-child {
-    font-weight: 600;
   }
 `;
 
@@ -51,7 +48,7 @@ export const List = styled.div`
   display: grid;
 
   @media only screen and (min-width: ${({ theme }) => theme.sm}) {
-    gap: 2rem;
+    gap: ${({ theme }) => theme.padding};
     grid-template-columns: 2fr 3fr;
   }
 

@@ -12,7 +12,7 @@ const useObserver = (ref) => {
           observer.unobserve(current);
         }
       },
-      { threshold: 0.33 }
+      { rootMargin: "0px 0px -96px 0px" }
     );
 
     observer.observe(current);
