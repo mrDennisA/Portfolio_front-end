@@ -7,7 +7,7 @@ import Banner from "../components/Banner";
 import ProjectList from "../components/Project/List";
 
 // API
-import { PROJECTS_URL, PROJECT_POPULATE } from "../constants/api";
+import { PROJECTS_URL } from "../constants/api";
 
 export default function Home({ projects }) {
   const theme = useTheme();
@@ -27,7 +27,7 @@ export default function Home({ projects }) {
 
 export async function getStaticProps() {
   try {
-    const { data: projects } = await (await fetch(PROJECTS_URL + PROJECT_POPULATE)).json();
+    const { data: projects } = await (await fetch(PROJECTS_URL)).json();
 
     return {
       props: { projects: projects.reverse() },
