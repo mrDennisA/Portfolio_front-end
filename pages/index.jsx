@@ -16,7 +16,7 @@ export default function Home({ projects }) {
 
   return (
     <>
-      <Head title="Projects" />
+      <Head title="Projects" description="Dennis Alekseev. Front-end portfolio." />
       <Margin width={theme.midWidth}>
         <Banner>Projects</Banner>
         <ProjectList data={projects} />

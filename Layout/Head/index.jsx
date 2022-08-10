@@ -6,7 +6,7 @@ import useFormat from "../../hooks/useFormat";
 export default function Head({ title = "", description = "" }) {
   return (
     <HeadNext>
-      <title>{useFormat(title) + " - DA"}</title>
+      <title>{title + " - DA"}</title>
       <meta name="description" content={description} />
     </HeadNext>
   );
