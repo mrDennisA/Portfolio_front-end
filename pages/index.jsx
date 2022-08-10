@@ -12,11 +12,11 @@ import { PROJECTS_URL } from "../constants/api";
 export default function Home({ projects }) {
   const theme = useTheme();
 
-  // console.log(projects);
+  console.log(projects);
 
   return (
     <>
-      <Head title="Projects" description="Dennis Alekseev. Front-end portfolio." />
+      <Head title="Projects" description="Front-end portfolio." />
       <Margin width={theme.midWidth}>
         <Banner>Projects</Banner>
         <ProjectList data={projects} />
