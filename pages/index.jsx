@@ -12,7 +12,7 @@ import { PROJECTS_URL } from "../constants/api";
 export default function Home({ projects }) {
   const theme = useTheme();
 
-  console.log(projects);
+  // console.log(projects);
 
   return (
     <>
