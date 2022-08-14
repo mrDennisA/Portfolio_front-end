@@ -33,7 +33,6 @@ export async function getStaticPaths() {
         params: {
           slug: item.attributes.slug,
         },
-        revalidate: 10,
       };
     });
 
