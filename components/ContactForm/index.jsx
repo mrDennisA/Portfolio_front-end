@@ -29,10 +29,10 @@ export default function ContactForm() {
     setRespons(null);
 
     try {
-      // await fetch("/api/contactForm", {
-      //   method: "POST",
-      //   body: JSON.stringify(data),
-      // });
+      await fetch("/api/contactForm", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
       // console.log("data", data);
       setRespons({ message: "Contact Request Submitted Successfully", validation: "success" });
     } catch (error) {
