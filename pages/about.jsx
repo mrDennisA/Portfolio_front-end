@@ -43,6 +43,7 @@ export async function getStaticProps() {
         experiences: experiences.reverse(),
         educations: educations.reverse(),
       },
+      revalidate: 10,
     };
   } catch (error) {
     console.log(error);

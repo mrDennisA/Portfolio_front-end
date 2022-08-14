@@ -52,6 +52,7 @@ export async function getStaticProps({ params }) {
 
     return {
       props: { project: project.attributes },
+      revalidate: 10,
     };
   } catch (error) {
     console.log(error);

@@ -31,6 +31,7 @@ export async function getStaticProps() {
 
     return {
       props: { projects: projects.reverse() },
+      revalidate: 10,
     };
   } catch (error) {
     console.log(error);
