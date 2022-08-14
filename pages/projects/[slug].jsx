@@ -33,10 +33,11 @@ export async function getStaticPaths() {
         params: {
           slug: item.attributes.slug,
         },
+        revalidate: 10,
       };
     });
 
-    return { paths, fallback: false, revalidate: 10 };
+    return { paths, fallback: false };
   } catch (error) {
     console.log(error);
   }
