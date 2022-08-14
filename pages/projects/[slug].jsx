@@ -36,7 +36,7 @@ export async function getStaticPaths() {
       };
     });
 
-    return { paths, fallback: false };
+    return { paths, fallback: false, revalidate: 10 };
   } catch (error) {
     console.log(error);
   }
